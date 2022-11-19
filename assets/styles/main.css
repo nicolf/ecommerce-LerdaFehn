@@ -24,6 +24,10 @@ body{
   font-family: Poppins, sans-serif;  
 }
 
+.navbar{
+  z-index:999;
+}
+
 .talignc {
   text-align: center;
 }
@@ -187,6 +191,7 @@ footer * {
 .productos__img {
   width: 200px;
   border-radius: 10px;
+  z-index:0;
 }
 
 .productos__category {
@@ -209,6 +214,7 @@ footer * {
   margin: 0;
   border-radius: 10px;
   transition: .5s;
+  z-index:1;
 }
 
 .preentrega {
