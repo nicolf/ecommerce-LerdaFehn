@@ -24,6 +24,10 @@ body{
   font-family: Poppins, sans-serif;  
 }
 
+.talignc {
+  text-align: center;
+}
+
 .navbar__imglogo{
   width: 20px;
   margin-left:25px;
@@ -83,6 +87,7 @@ body{
   border: 0;
   margin: 0;
   border-radius: 10px;
+  transition: .5s;
 }
 
 footer {
@@ -168,6 +173,13 @@ footer * {
   border-radius: 20px;
   padding: 20px 10px;
   max-width: 250px;
+  transition: .5s;
+}
+
+.productos__item:hover {
+  box-shadow: 1px 5px 16px 10px rgb(0 0 0 / 75%);
+  -webkit-box-shadow: 1px 5px 16px 10px rgb(0 0 0 / 75%);
+  -moz-box-shadow: 1px 5px 16px 10px rgba(0,0,0,0.75);
 }
 
 .productos__img {
@@ -194,6 +206,7 @@ footer * {
   border: 0;
   margin: 0;
   border-radius: 10px;
+  transition: .5s;
 }
 
 .preentrega {
@@ -250,4 +263,35 @@ footer * {
 
 .login__forgotpass {
   text-align: center;
+}
+
+.productsingle {
+  margin:100px 0px;
+}
+
+.productsingle img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.w100 {
+  width:100%;
+}
+
+.toRight{
+  display: flex; 
+  justify-content: flex-end;
+}
+
+.pt15{
+  padding-top:15px;
+}
+
+.navbar__logo p, .navbar__logo a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.inicial__button:hover, .productos__btnbuy:hover{
+  background: #ab3502;
 }
