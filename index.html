@@ -13,109 +13,141 @@
     <!-- end fonts -->
 
     <!-- CSS -->
-    <link rel="stylesheet" type="text/css" href="assets/css/main.css">
+    <link rel="stylesheet" type="text/css" href="assets/styles/main.css">
     <!-- END CSS-->
+
+    <!-- BOOTSTRAP IMPORT -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <!-- END BOOTSTRAP -->
+    <style>
+      .w100 {
+        width:100%;
+      }
+
+      .toRight{
+        display: flex; 
+        justify-content: flex-end;
+      }
+
+      .pt15{
+        padding-top:15px;
+      }
+
+      .navbar__logo p, .navbar__logo a {
+        color: #fff;
+        text-decoration: none;
+      }
+
+    </style>
   </head>
   <body>
     <header>
-      <navbar class="navbar">
-        <ul class="navbar__ul">
-          <li>
-            <a href="#"><img src="assets/img/logo4.png" class="navbar__imglogo"><p> Marshka</p></a>
-          </li>
-          <li>
-            <a href="contact.html">Contacto</a>
-          </li>
-          <li>
-            <a href="login.html">Login</a>
-          </li>          
-          <li>
-            <a href="products.html">Productos</a>
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <a class="navbar-brand" href="#"><img src="assets/img/logo4.png" class="navbar__imglogo"> Marshka</a>
+          <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
             
-          </li>
-        </ul>
-      </navbar>
+              <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                  <a class="nav-link" href="pages/contact.html">Contacto</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="pages/login.html">Login</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="pages/products.html">Productos</a>
+                </li>
+              </ul>
+          </div>
+        </div>
+      </nav>
     </header>
+    <main>
+      <section class="inicial">
+        <div class="inicial__background">
+          <div>
+            <h1>Hace tus compras en <u>Marshka</u></h1>
+            <a href="pages/products.html"><button type="button" class="inicial__button">Productos</button></a>
+          </div>
+        </div>
+      </section>
+
+      <section class="productos">
+        <h2>Productos destacados</h2>
+        <div class="container">
+          <div class="productos__products row">
+            <div class="productos__container-item col-12 col-sm-6 col-md-4 col-lg-3">
+              <div class="productos__item">
+                <img src="assets/img/products/1.jpeg" class="productos__img">
+                <p class="productos__price"><b>$2.000,00</b></p>
+                <p class="productos__category">Top</p>
+                <p class="productos__name">Musculosa gris</p>          
+                <button class="productos__btnbuy" onclick="location.href = 'pages/producto1.html';">COMPRAR</button>
+              </div>
+            </div>
+            <div class="productos__container-item col-12 col-sm-6 col-md-4 col-lg-3">
+              <div class="productos__item">
+                <img src="assets/img/products/2.jpeg" class="productos__img">
+                <p class="productos__price"><b>$11.231,53</b></p>
+                <p class="productos__category">Top</p>
+                <p class="productos__name">Blazer rosa</p>          
+                <button class="productos__btnbuy" onclick="location.href = 'pages/producto1.html';">COMPRAR</button>
+              </div>
+            </div>
+            <div class="productos__container-item col-12 col-sm-6 col-md-4 col-lg-3">
+              <div class="productos__item">
+                <img src="assets/img/products/3.jpeg" class="productos__img">
+                <p class="productos__price"><b>$2.000,00</b></p>
+                <p class="productos__category">Top</p>
+                <p class="productos__name">Musculosa beige</p>          
+                <button class="productos__btnbuy" onclick="location.href = 'pages/producto1.html';">COMPRAR</button>
+              </div>
+            </div>
+            <div class="productos__container-item col-12 col-sm-6 col-md-4 col-lg-3">
+              <div class="productos__item">
+                <img src="assets/img/products/4.jpeg" class="productos__img">
+                <p class="productos__price"><b>$11.231,53</b></p>
+                <p class="productos__category">Top</p>
+                <p class="productos__name">Blazer turquesa</p>          
+                <button class="productos__btnbuy" onclick="location.href = 'pages/producto1.html';">COMPRAR</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="prefooter">
+        <img src="assets/img/newin.webp">
+      </section>
+    </main>
     
-    <section class="inicial">
-      <div class="inicial__background">
-        <div>
-          <h1>Hace tus compras en <u>Marshka</u></h1>
-          <a href="products.html"><button type="button" class="inicial__button">Productos</button></a>
-        </div>
-      </div>
-    </section>
-
-    <section class="productos">
-      <h2>Productos destacados</h2>
-      <div class="productos__products">
-        <div class="productos__container-item">
-          <div class="productos__item">
-            <img src="assets/img/products/1.jpeg" class="productos__img">
-            <p class="productos__price"><b>$2.000,00</b></p>
-            <p class="productos__category">Top</p>
-            <p class="productos__name">Musculosa gris</p>          
-            <button class="productos__btnbuy" onclick="location.href = 'producto1.html';">COMPRAR</button>
-          </div>
-        </div>
-        <div class="productos__container-item">
-          <div class="productos__item">
-            <img src="assets/img/products/2.jpeg" class="productos__img">
-            <p class="productos__price"><b>$11.231,53</b></p>
-            <p class="productos__category">Top</p>
-            <p class="productos__name">Blazer rosa</p>          
-            <button class="productos__btnbuy" onclick="location.href = 'producto1.html';">COMPRAR</button>
-          </div>
-        </div>
-        <div class="productos__container-item">
-          <div class="productos__item">
-            <img src="assets/img/products/3.jpeg" class="productos__img">
-            <p class="productos__price"><b>$2.000,00</b></p>
-            <p class="productos__category">Top</p>
-            <p class="productos__name">Musculosa beige</p>          
-            <button class="productos__btnbuy" onclick="location.href = 'producto1.html';">COMPRAR</button>
-          </div>
-        </div>
-        <div class="productos__container-item">
-          <div class="productos__item">
-            <img src="assets/img/products/4.jpeg" class="productos__img">
-            <p class="productos__price"><b>$11.231,53</b></p>
-            <p class="productos__category">Top</p>
-            <p class="productos__name">Blazer turquesa</p>          
-            <button class="productos__btnbuy" onclick="location.href = 'producto1.html';">COMPRAR</button>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="prefooter">
-      <img src="assets/img/newin.webp">
-    </section>
-
     <footer>
-      <div class="footer__logo">
-        <img src="assets/img/logo3.png">
-      </div>
-      <div class="footer__rrss">              
-        <h4>Seguinos en nuestras redes</h4>
-        <div class="footer__rrss-links">
-          <a href="https://es-la.facebook.com/marshka" target="blank" rel="noopener noreferrer"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-          <a href="https://www.instagram.com/marshka" target="blank" rel="noopener noreferrer"><i class="fa fa-instagram" aria-hidden="true"></i></a>
-          <a href="https://www.youtube.com/marshka" target="blank" rel="noopener noreferrer"><i class="fa fa-youtube" aria-hidden="true"></i></a>
-        </div>
-      </div>
-      <div class="footer__contacto">
-        <h4>¡Comunicate con nosotros!</h4>
-        <div class="footer__contacto-tel">
-          <ul>
-            <li>
+      <div class="container">
+        <div class="row">
+          <div class="col-12 col-md-4 footer__logo">            
+            <img src="assets/img/logo3.png">
+          </div>
+          <div class="col-12 col-md-4 footer__rrss">
+            <h4>Seguinos en nuestras redes</h4>
+            <div class="footer__rrss-links">
+              <a href="https://es-la.facebook.com/marshka" target="blank" rel="noopener noreferrer"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+              <a href="https://www.instagram.com/marshka" target="blank" rel="noopener noreferrer"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+              <a href="https://www.youtube.com/marshka" target="blank" rel="noopener noreferrer"><i class="fa fa-youtube" aria-hidden="true"></i></a>
+            </div>
+          </div>
+          <div class="col-12 col-md-4 footer__contacto">
+            <h4>¡Comunicate con nosotros!</h4>
+            <div class="footer__contacto-tel">
               <a href="https://wa.me/+54911" target="_blank" rel="noopener noreferrer"><i class="fa fa-whatsapp" aria-hidden="true"></i></a>
-
-            </li>
-          </ul>
+            </div>
+          </div>
         </div>
       </div>
     </footer>
   <script src="https://kit.fontawesome.com/f280b14cb3.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
   </body>
 </html>

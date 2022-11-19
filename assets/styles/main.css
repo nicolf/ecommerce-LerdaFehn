@@ -1,3 +1,9 @@
+*{
+   padding: 0;
+   margin: 0;
+   box-sizing: border-box;
+}
+
 ::-webkit-scrollbar {
   width: 0px;  
   background: transparent;  
@@ -7,51 +13,30 @@ body {
   overflow-x: hidden;
 }
 
-header {  
-  align-items: center;
-  background-color: #3d3b42;  
-  display: flex;  
-  height: 40px;  
+header {    
   left: 0;  
   right: 0;   
   position: fixed;    
   top: 0;
 }  
 
-header * {  
-  display: inline;  
-}  
-
-header li {  
-  margin: 25px;  
-}  
-
 body{
-  font-family: Poppins, sans-serif;
-  margin: 0px;
-}
-
-.navbar {
-  width: 100%;
-  z-index: 5;
+  font-family: Poppins, sans-serif;  
 }
 
 .navbar__imglogo{
   width: 20px;
+  margin-left:25px;
 }
 
-.navbar__ul li a{
-  color: #fff;
-  text-decoration: none;
-}
-
+/*
 .navbar__ul li {
   float: right;
 }
 
 .navbar__ul li:first-child{
   float: left;
-}
+}*/
 
 
 .inicial__background{
@@ -72,8 +57,16 @@ body{
 }
 
 .inicial div h1{        
-  font-size: 5rem;
+  font-size: 2rem;
 }
+
+@media (min-width:768px){
+  .inicial div h1{        
+    font-size: 5rem;
+  }  
+}
+
+
 
 .inicial__button{
   background: #FD8F5F;
@@ -94,21 +87,16 @@ body{
 
 footer {
   background: #3d3b42;
-  height: 300px;
+  height: 100%;
+  padding: 50px 0px;
 }
 
 footer * {
-  display: inline-block;
   text-align: center;
 }
 
-.footer__logo {
-  width: 33vw;
+.footer__logo, .footer__rrss, .footer__contacto {
   padding-top: 50px;
-}
-
-.footer__rrss {
-  width: 33vw;
 }
 
 .footer__rrss h4 {
@@ -119,11 +107,6 @@ footer * {
   display: block;
 }
 
-.footer__contacto {
-  width: 33vw;
-
-}
-
 .footer__contacto h4 {
   font-size: 26px;
   color: #ffffff;
@@ -132,7 +115,7 @@ footer * {
   display: block;
 }
 
-.footer__rrss-links a {
+.footer__rrss-links a, .footer__contacto-tel a {
   font-size: 18px;
   color: #000;
   height: 50px;
@@ -145,30 +128,19 @@ footer * {
   margin-right: 10px;
 }
 
-.footer__contacto-tel ul li i {
-  font-size: 18px;
-  color: #000;
-  height: 50px;
-  width: 50px;
-  background: #ffffff;
-  border-radius: 50%;
-  line-height: 50px;
-  text-align: center;
-  left: 0;
-  top: 0;
-}
-
 .footer__logo img {
   width: 150px;
 }
 
-.prefooter {      
-  max-height: 384px;
-  height: 100vh;
+.prefooter {        
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
+}
+
+.prefooter img {
+  width:100%;
 }
 
 .productos {
@@ -184,10 +156,8 @@ footer * {
   display: inline;
 }
 
-.productos__container-item {
-  display: inline-block;
-  width: 20%;
-  margin-right: 40px; 
+.productos__container-item {  
+  margin-top: 50px !important;
   text-align: -webkit-center;           
 }
 
@@ -230,4 +200,54 @@ footer * {
   margin-top: 100px;
   text-align: center;
   margin-bottom: 100px;
+}
+
+.login {
+  margin-top: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login__input-element {
+  display: block;
+  width: 100%;
+  height: 38px;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+}
+
+.login__formulario {
+  width: 300px;
+}
+
+.login__button {
+  background: #FD8F5F;
+  padding: 27px 44px;
+  color: #fff;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 15px;
+  display: inline-block;
+  line-height: 1;
+  letter-spacing: 1px;
+  line-height: 0;
+  margin-bottom: 0;
+  border: 0;
+  margin: 0;
+  border-radius: 10px;
+  width: 100%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.login__forgotpass {
+  text-align: center;
 }
