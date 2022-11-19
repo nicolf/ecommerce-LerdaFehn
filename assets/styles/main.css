@@ -91,7 +91,7 @@ body{
 }
 
 footer {
-  background: #3d3b42;
+  background: linear-gradient(to top,#3d3b42, #212529 ); 
   height: 100%;
   padding: 50px 0px;
 }
@@ -150,7 +150,7 @@ footer * {
 
 .productos {
   text-align: center;
-  margin-bottom: 100px;
+  margin: 100px 0px;
 }
 
 .productos__products {
@@ -213,6 +213,11 @@ footer * {
   margin-top: 100px;
   text-align: center;
   margin-bottom: 100px;
+}
+
+.preentrega img{
+  width:100%;
+  max-width: 512px;
 }
 
 .login {
@@ -294,4 +299,14 @@ footer * {
 
 .inicial__button:hover, .productos__btnbuy:hover{
   background: #ab3502;
+}
+
+[data-aos] {
+  pointer-events: none;
+}
+.aos-animate {
+  pointer-events: auto;
+}
+.aos-init[data-aos][data-aos].aos-animate {
+  transform: unset;
 }
