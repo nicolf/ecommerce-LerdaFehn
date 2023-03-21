@@ -1,9 +1,10 @@
 const carrito = []
 
 class CarritoProduct{
-    constructor(id, name, cantidad, price, img) {
+    constructor(id, name, category, cantidad, price, img) {
         this.id = id
         this.name = name
+        this.category = category
         this.cantidad = cantidad
         this.price = price        
         this.img = img
@@ -16,9 +17,11 @@ class CarritoProduct{
 }
 
 const addToCart = (producto) => {
-    let productoIdentificado = eval("producto"+producto)    
+    let productoIdentificado = aProductos.filter(function(objeto) {
+      return objeto.id === Number(producto);
+    });
 
-    if(productoIdentificado.oos){                
+    if(productoIdentificado[0].oos){                
         Toastify({
             text: "¡Upps! Lo sentimos, no tenemos mas stock de este producto",
             duration: 3000,
@@ -27,10 +30,10 @@ const addToCart = (producto) => {
               }
         }).showToast()
     } else {
-        productoIdentificado.sumarAlCarrito(1)
-        sumarAlCarritoFrontEnd()
+        productoIdentificado[0].sumarAlCarrito(1)
+        getCarritoFrondEnd()
         Toastify({
-            text: `Se ha agregado una unidad del producto ${productoIdentificado.name} al carrito éxitosamente`,
+            text: `Se ha agregado una unidad del producto ${productoIdentificado[0].name} al carrito éxitosamente`,
             duration: 3000,
             style: {
                 background: "linear-gradient(to top, #0ba360 0%, #3cba92 100%)",                
@@ -38,6 +41,22 @@ const addToCart = (producto) => {
         }).showToast()    
 
     }
+}
+
+const removeFromCart = (producto, cantidad, isAll) => {
+  let productoIdentificado = aProductos.filter(function(objeto) {
+    return objeto.id === Number(producto);
+  });
+
+    productoIdentificado[0].quitarDelCarrito(cantidad, isAll)
+    getCarritoFrondEnd()
+    Toastify({
+        text: `Se ha quitado una unidad del producto ${productoIdentificado[0].name} del carrito éxitosamente`,
+        duration: 3000,
+        style: {
+            background: "linear-gradient(to top, #0ba360 0%, #3cba92 100%)",                
+          }
+    }).showToast()    
 }
 
 const contenedorProductos = document.getElementById('productosDestacados')
@@ -48,7 +67,7 @@ contenedorProductos.addEventListener('click', (e)=>{
 })
 
 
-const sumarAlCarritoFrontEnd = () => {
+const getCarritoFrondEnd = () => {
     const contenedor = document.getElementById('carrito-contenedor')
     contenedor.innerHTML = ""
     carrito.forEach(producto => {
@@ -67,17 +86,43 @@ const sumarAlCarritoFrontEnd = () => {
             </div>
           </div>
           <div class="d-flex flex-row align-items-center">
-            <div style="width: 50px;">
-              <h5 class="fw-normal mb-0">${producto.cantidad}</h5>
-            </div>
-            <div style="width: 80px;">
+          <div class="d-flex justify-content-between align-items-center" style="width: 80px;"> 
+            <button type="button" class="btn btn-sm btn-outline-secondary btn-decrement"><i class="fas fa-minus"></i></button>
+            <h5 class="mb-0">${producto.cantidad}</h5>
+            <button type="button" class="btn btn-sm btn-outline-secondary btn-increment"><i class="fas fa-plus"></i></button>
+          </div>
+            <div style="width: 80px;"> 
               <h5 class="mb-0">$${producto.price}</h5>
             </div>
-            <a href="#!" style="color: #cecece;"><i class="fas fa-trash-alt"></i></a>
+            <button type="button" class="btndelete"><i class="fas fa-trash-alt" style="color: #cecece;"></i></button>
           </div>
         </div>
       </div>`
+
+      const incrementBtn = div.querySelector('.btn-increment');
+      incrementBtn.addEventListener('click', () => {
+        addToCart(producto.id);
+      });
+
+      const decrement = div.querySelector('.btn-decrement');
+      decrement.addEventListener('click', () => {
+        removeFromCart(producto.id, 1, false);
+      });
+
+      const deletiar = div.querySelector('.btndelete');
+      deletiar.addEventListener('click', () => {
+        removeFromCart(producto.id, 1, true);
+      });
       contenedor.appendChild(div)
     });
 
 }
+
+const btnIncrement = document.querySelectorAll('.btn-increment');
+
+btnIncrement.forEach(btn => {
+  btn.addEventListener('click', () => {
+    const productId = btn.dataset.productId;
+    addToCart(productId);
+  });
+});

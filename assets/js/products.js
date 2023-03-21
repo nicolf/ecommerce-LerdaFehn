@@ -26,16 +26,78 @@ class Product {
         if(productoEnCarrito){         
             productoEnCarrito.cantidad += cantidad 
             productoEnCarrito.recalcularSubtotales()
+            localStorage.setItem("cart", JSON.stringify(carrito));
         } else {
-            carrito.push(new CarritoProduct(this.id, this.name, cantidad, this.price, this.img))
+            carrito.push(new CarritoProduct(this.id, this.name, this.category, cantidad, this.price, this.img))
+            localStorage.setItem("cart", JSON.stringify(carrito));
         }
+    }
+
+    quitarDelCarrito(cantidad, isAll){    
+        if(isAll){
+            const productoEnCarrito = carrito.find(esto => esto.id === this.id)
+            this.stock += productoEnCarrito.cantidad
+            this.pu -= productoEnCarrito.cantidad
+            this.subtotal = 0
+            this.recalcularStock()
+
+            const index = carrito.findIndex(esto => esto.id === this.id)
+            carrito.splice(index, 1);
+            localStorage.setItem("cart", JSON.stringify(carrito));
+
+        } else {
+            this.stock += cantidad
+            this.pu -= cantidad
+            this.subtotal = this.pu * this.price
+            this.recalcularStock()
+            const productoEnCarrito = carrito.find(esto => esto.id === this.id)
+
+            if((productoEnCarrito.cantidad - cantidad) > 0){         
+                productoEnCarrito.cantidad -= cantidad 
+                productoEnCarrito.recalcularSubtotales()
+                localStorage.setItem("cart", JSON.stringify(carrito));
+            } else {
+                const index = carrito.findIndex(esto => esto.id === this.id)
+                carrito.splice(index, 1);
+                localStorage.setItem("cart", JSON.stringify(carrito));
+            }
+        }
+
     }
 }
 
-let producto1 = new Product("Remera Pink", "Esta es una Remera Pink", "Remeras", 500, 25, 1, "assets/img/products/1.jpeg")
-let producto2 = new Product("Pantalon Luis", "Esto es un Pantalon Luis", "Pantalones", 1000, 10, 2, "assets/img/products/2.jpeg")
-let producto3 = new Product("Solo1", "Este es un producto que tiene una sola unidad en stock", "Remeras", 2100, 1, 3, "assets/img/products/3.jpeg")
-let producto4 = new Product("SinStock", "Este es un producto sin stock", "Pantalones", 2500, 0, 4, "assets/img/products/4.jpeg")
+let aProductos = []
 let precioEnvio = 500
 
-const aProductos = [producto1, producto2, producto3, producto4]
+const getProducts = () => {
+    aProductos = []
+    fetch('assets/data/products.json').then(response => response.json()).then(data => {
+        aProductos = data.map(product => {
+            return new Product(product.name, product.detail, product.category, product.price, product.stock, product.id, product.img);
+        });
+        mostrarProductos(aProductos)
+        carritoStorage = JSON.parse(localStorage.getItem('cart'));
+        carritoStorage.forEach(objeto => {
+            /*carrito.push(new CarritoProduct(
+                objeto.id,
+                objeto.name,
+                objeto.category,
+                objeto.cantidad,
+                objeto.price,
+                objeto.img
+              ))*/
+            aProductos.find(esto => esto.id === objeto.id).sumarAlCarrito(objeto.cantidad)
+        });
+        getCarritoFrondEnd()
+    }).catch(error => Toastify({
+        text: "¡Upps! Lo sentimos, no pudimos traer los productos. Vuelva a intentarlo. "+error,
+        duration: 3000,
+        style: {
+            background: "linear-gradient(109.6deg, rgb(162, 2, 63) 11.2%, rgb(231, 62, 68) 53.6%, rgb(255, 129, 79) 91.1%)",
+          }
+    }).showToast());
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    getProducts();
+});

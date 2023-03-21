@@ -1,0 +1,11 @@
+{
+  "name": "entregacoder",
+  "version": "1.0.0",
+  "description": "Entrega final de curso de JavaScript por Lerda Fehn Nicolas",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Lerda Fehn Nicolas",
+  "license": "ISC"
+}

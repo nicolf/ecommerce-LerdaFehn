@@ -1,0 +1,38 @@
+[
+    {
+        "name": "Remera Pink", 
+        "detail": "Esta es una Remera Pink",
+        "category": "Remeras", 
+        "price": 500, 
+        "stock": 25, 
+        "id": 1, 
+        "img": "assets/img/products/1.jpeg"
+    },
+    {
+        "name": "Pantalon Luis", 
+        "detail": "Esto es un Pantalon Luis",
+        "category": "Pantalones", 
+        "price": 1000, 
+        "stock": 10, 
+        "id": 2, 
+        "img": "assets/img/products/2.jpeg"
+    },
+    {
+        "name": "Solo1", 
+        "detail": "Este es un producto que tiene una sola unidad en stock",
+        "category": "Remeras", 
+        "price": 2100, 
+        "stock": 1, 
+        "id": 3, 
+        "img": "assets/img/products/3.jpeg"
+    },
+    {        
+        "name": "SinStock", 
+        "detail": "Este es un producto sin stock",
+        "category": "Pantalones", 
+        "price": 2500, 
+        "stock": 0, 
+        "id": 4, 
+        "img": "assets/img/products/4.jpeg"
+    }
+]

@@ -1,5 +1,4 @@
-const getProductos = (data) => {
-    console.log(data)
+const mostrarProductos = (data) => {
     const contenedor = document.getElementById("productosDestacados")
 
     data.forEach(producto => {
@@ -16,5 +15,3 @@ const getProductos = (data) => {
       contenedor.appendChild(div)
     });
 }
-
-document.addEventListener('DOMContentLoaded', getProductos(aProductos))

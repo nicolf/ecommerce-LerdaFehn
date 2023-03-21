@@ -294,3 +294,10 @@ footer * {
 .aos-init[data-aos][data-aos].aos-animate {
   transform: unset;
 }/*# sourceMappingURL=inicio.css.map */
+
+.btndelete, .close {
+  text-decoration: none;
+  border: none;
+  background: none;
+}
+
